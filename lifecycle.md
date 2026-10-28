@@ -1,6 +1,6 @@
 # Lifecycle
 
-Phase **plan** (from `\lintphase` in `paper/thesis.tex`), checked 2026-10-26 by CI.
+Phase **plan** (from `\lintphase` in `paper/thesis.tex`), checked 2026-10-28 by CI.
 
 A row is present when its file exists and is more than a stub. Judgement is the consultation's; this is the inventory.
 

@@ -39,8 +39,16 @@ longer than a stub. The paper's burn-down counts are appended to `burndown.csv` 
 `burndown.svg`, both committed by the workflow. Judgement stays with the consultation; this is
 the inventory.
 
-## The self-score skill
+## The agent skills
 
-`.claude/skills/self-score/` scores the reviewer PDF on the review sheet's criteria, in the
-sheet's words, and names the cheapest fix; `personas/` holds eight short reviewer personas for a
-harsher pass. It writes nothing; the consultation is the record.
+The skills live in the paper repository, so the paper's commit fixes the skills that review it.
+`.claude/skills/self-score` and `.claude/skills/reviewer-passes` here are links into
+`paper/.claude/skills/`; they resolve once the paper is a submodule.
+
+`self-score` scores the reviewer PDF on the review sheet's criteria, in the sheet's words, and
+names the cheapest fix. `reviewer-passes` reads the paper as its reviewers will: the skim reviewer
+on the skim view, and a panel of disjoint expert personas on the reviewer PDF. Both read the
+evidence paper CI builds for one commit, fetched with `paper/scripts/review/review.py`, and give
+each persona only its own inputs. Name the spine when you run them from here:
+`notes/anchors/spine.md`. They answer in chat and write nothing, unless a run is recorded as one
+issue on the paper repository; the paper guide's lifecycle chapter says when.
